@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>Activitățile utilizatorilor</h1>
+<form method="GET" action="">
+<input class='form-control' type="text" name="q" placeholder="Utilizator" value="{{ request.GET.q }}" />
+<br/>
+<input class='btn btn-default' type="submit" value="Caută"/>
+</form>
+
+<h3>Utilizatori conectați</h3>
+<ul>
+    {% for obj in checked_in_users %}
+    <li>{{ obj.user.username }} - {{ obj.timestamp | timesince }}</li>
+
+    {% endfor %}
+</ul>
+
+<h3>Utilizatori deconectați</h3>
+<ul>
+    {% for obj in checked_out_users %}
+    <li>{{ obj.user.username }} - {{ obj.timestamp | timesince }}</li>
+
+    {% endfor %}
+</ul>
+
+<h3>Utilizatori inactivi</h3>
+<ul>
+    {% for obj in inactive_users %}
+    <li>{{ obj.username }} </li>
+
+    {% endfor %}
+</ul>
+
+<h3>Toate activitățile</h3>
+<ul>
+    {% for obj in all_activity %}
+    <li>{{ obj.user.username }} - {{ obj.activity }} - {{ obj.timestamp | timesince }}</li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}

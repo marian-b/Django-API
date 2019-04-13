@@ -1,0 +1,24 @@
+{%extends "base.html" %}
+
+{% block content %}
+
+{% if object %}
+<h1>Stare curentă:</h1>
+<h3>{{ object.current }}</h3>
+<p>Actualizat: {{ object.timestamp }}</p>
+{% endif %}
+
+{% if user.is_staff %}
+
+{% endif %}
+
+<form method='POST' action=''>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class='btn btn-primary' type='submit' value='{% if object %}{{object.next_activity }}{% else %}Check in{% endif %}' />
+
+</form>
+<br/>
+<p>Nu ești {{ object.user.username }}? <a href='/logout'>Ieșire cont</a></p>
+
+{% endblock %}

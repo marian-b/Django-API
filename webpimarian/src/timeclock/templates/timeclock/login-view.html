@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+<h1>Formular de login</h1>
+<form method='POST' action=''>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input class='btn btn-primary' type='submit' value='{% if object2 %}{{object.next_activity }}{% else %}Conectare{% endif %}' />
+</form>
+
+
+{% endblock %}
