@@ -1,4 +1,4 @@
-		# Django-API
+	# Django-API
 	Django Web Framework API for managing users activity.
 	The tools used for this project:
 	1. Raspberry Pi 1 Model B
